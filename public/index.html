@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>BRIKETA — Smart Briketisasi IoT</title>
+<meta name="description" content="BRIKETA: mesin smart briketisasi berbasis IoT yang mengubah limbah organik dapur Makan Bergizi Gratis (MBG) menjadi briket — solusi zero waste dan ekonomi sirkular.">
+<meta name="theme-color" content="#E9EFF7">
+<meta property="og:title" content="BRIKETA — Limbah dapur MBG jadi energi bersih">
+<meta property="og:description" content="Mesin smart briketisasi berbasis IoT untuk limbah organik dapur MBG.">
+<meta property="og:image" content="icon-512.png">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="landing.css">
+</head>
+<body class="lp">
+<div style="position:absolute;inset:0 0 auto 0;height:1400px;overflow:hidden;pointer-events:none"><div class="orb a"></div><div class="orb b"></div></div>
+
+<nav class="lp-nav" id="lpNav">
+  <div class="lp-wrap">
+    <a class="brand" href="#top" style="text-decoration:none;color:inherit">
+      <div class="logo"><i data-ic="brick"></i></div>
+      <div><b>BRIKETA</b><small data-en="Smart IoT Briquetting">Smart Briketisasi IoT</small></div>
+    </a>
+    <div class="lp-links">
+      <a href="#masalah" data-en="Problem">Masalah</a>
+      <a href="#cara-kerja" data-en="How it works">Cara kerja</a>
+      <a href="#desain" data-en="Machine design">Desain mesin</a>
+      <a href="#iot" data-en="Technology">Teknologi</a>
+      <a href="#dampak" data-en="Impact">Dampak</a>
+      <a href="#tim" data-en="Team">Tim</a>
+    </div>
+    <div class="lp-right">
+      <div class="lang" id="lang"><button data-l="id">ID</button><button data-l="en">EN</button></div>
+      <a class="btn-sm" href="app"><i data-ic="chart"></i><span data-en="Open dashboard">Buka dashboard</span></a>
+    </div>
+  </div>
+</nav>
+
+<main id="top">
+  <!-- HERO -->
+  <div class="hero-bg" aria-hidden="true"></div>
+  <section class="lp-wrap hero">
+    <div class="rv">
+      <span class="chip" data-en="Zero waste · MBG kitchens">Zero waste · Dapur MBG</span>
+      <h1><span data-en="MBG kitchen waste,">Limbah dapur MBG,</span><span class="grad-text" data-en="turned into briquettes.">jadi briket energi.</span></h1>
+      <p class="sub" data-en="BRIKETA is an IoT-based smart briquetting machine that shreds, dries, carbonizes and moulds organic waste from Free Nutritious Meal (MBG) kitchens into fuel briquettes — monitored in real time from your phone.">BRIKETA adalah mesin smart briketisasi berbasis IoT yang mencacah, mengeringkan, mengarangkan, dan mencetak limbah organik dapur Makan Bergizi Gratis (MBG) menjadi briket bahan bakar — dipantau real-time dari ponsel.</p>
+      <div class="cta">
+        <a class="btn-primary" href="app"><i data-ic="chart"></i><span data-en="Open live dashboard">Buka dashboard live</span></a>
+        <a class="btn-soft" href="#cara-kerja"><i data-ic="flow"></i><span data-en="How it works">Lihat cara kerja</span></a>
+      </div>
+      <div class="facts">
+        <div class="fact"><b>3–5 kg</b><small data-en="waste input / day">input limbah / hari</small></div>
+        <div class="fact"><b>300–450 °C</b><small data-en="carbonization range">rentang karbonisasi</small></div>
+        <div class="fact"><b>SNI</b><small>01-6235-2000</small></div>
+      </div>
+    </div>
+    <div class="hero-visual rv">
+      <img class="deco d1" src="assets/deco/deco_briquettes.webp" alt="" aria-hidden="true">
+      <img class="deco d2" src="assets/deco/deco_orb.webp" alt="" aria-hidden="true">
+      <img class="machine-img" src="assets/machine/machine_hero.webp" width="1451" height="1495" alt="Render 3D mesin BRIKETA: hopper dan shredder, pengering, tabung karbonisasi, press hidrolik, dan panel kontrol IoT">
+      <div class="tag-float t1"><img src="assets/icons/i_carbon_anim.webp" alt=""><div><span data-en="Carbonization">Karbonisasi</span><small>300–450 °C</small></div></div>
+      <div class="tag-float t2"><img src="assets/icons/i_chip_anim.webp" alt=""><div><span data-en="IoT monitoring">Monitoring IoT</span><small>ESP32 · Wi-Fi</small></div></div>
+    </div>
+  </section>
+
+  <!-- MASALAH -->
+  <section class="sec-lp" id="masalah">
+    <div class="lp-wrap">
+      <div class="head rv">
+        <span class="chip" data-en="01 · The problem">01 · Masalah</span>
+        <h2><span data-en="Every meal served,">Setiap porsi tersaji,</span><span class="grad-text" data-en="leaves organic waste behind">menyisakan limbah organik</span></h2>
+        <p data-en="Launched on 6 January 2025, the MBG programme targets every kitchen to become a zero-waste model. Yet its daily organic waste is still poorly managed.">Program MBG dimulai 6 Januari 2025, dan setiap dapur MBG ditargetkan menjadi model zero waste. Namun limbah organik hariannya belum terkelola optimal.</p>
+      </div>
+      <div class="g3">
+        <div class="card lp-card rv"><img class="ic3d" src="assets/icons/i_kitchen.webp" alt="" loading="lazy">
+          <h3 data-en="Large daily volume">Volume harian besar</h3>
+          <p data-en="Leftover ingredients, cooking residue and uneaten meals pile up in every MBG kitchen, every day.">Sisa bahan makanan, sisa hasil masak, dan sisa makanan yang tidak terkonsumsi menumpuk setiap hari di dapur MBG.</p></div>
+        <div class="card lp-card rv"><img class="ic3d" src="assets/icons/i_drop.webp" alt="" loading="lazy">
+          <h3 data-en="High moisture content">Kadar air tinggi</h3>
+          <p data-en="Rice, vegetable and side-dish scraps hold far more water than dry biomass such as rice husk or coconut shell — harder to turn into fuel.">Sisa nasi, sayur, dan lauk berkadar air jauh lebih tinggi dibanding biomassa kering seperti sekam atau tempurung kelapa, sehingga lebih sulit dijadikan bahan bakar.</p></div>
+        <div class="card lp-card rv"><img class="ic3d" src="assets/icons/i_leaf.webp" alt="" loading="lazy">
+          <h3 data-en="Briquettes are untapped">Briket belum digarap</h3>
+          <p data-en="Current initiatives focus on used cooking oil → SAF and organics → compost/biogas. Turning kitchen waste into briquettes has not been developed.">Kebijakan yang dirintis baru fokus pada minyak jelantah → SAF dan sampah organik → kompos/biogas. Pemanfaatan menjadi briket belum dikembangkan.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CARA KERJA -->
+  <section class="sec-lp" id="cara-kerja">
+    <div class="lp-wrap">
+      <div class="head center rv">
+        <span class="chip" data-en="02 · How it works">02 · Cara kerja</span>
+        <h2><span data-en="Five stages,">Lima tahap,</span><span class="grad-text" data-en="one compact machine">satu mesin ringkas</span></h2>
+        <p data-en="Four functional units work in sequence, from raw kitchen waste to a moulded briquette.">Empat unit fungsional bekerja berurutan, dari limbah dapur mentah hingga briket tercetak.</p>
+      </div>
+      <div class="flow">
+        <div class="fstep rv"><div class="n"><img class="n3d" src="assets/icons/i_shred.webp" alt="" loading="lazy"><b>1</b></div><h4 data-en="Shredding">Pencacahan</h4><p data-en="Double-shaft shredder with a high-torque DC motor reduces waste size.">Shredder double-shaft bermotor DC high torque memperkecil ukuran limbah.</p></div>
+        <div class="fstep rv"><div class="n"><img class="n3d" src="assets/icons/i_dry.webp" alt="" loading="lazy"><b>2</b></div><h4 data-en="Pre-drying">Pengeringan awal</h4><p data-en="500 W heating element and blower bring moisture down before carbonization.">Elemen pemanas 500 W dan blower menurunkan kadar air sebelum dikarbonisasi.</p></div>
+        <div class="fstep rv"><div class="n"><img class="n3d" src="assets/icons/i_carbon.webp" alt="" loading="lazy"><b>3</b></div><h4 data-en="Carbonization">Karbonisasi</h4><p data-en="Pyrolysis drum with ceramic-fibre insulation, held at the optimal range.">Tabung pirolisis berinsulasi ceramic fiber, dijaga di rentang optimal.</p><span class="pill">300–450 °C</span></div>
+        <div class="fstep rv"><div class="n"><img class="n3d" src="assets/icons/i_mix.webp" alt="" loading="lazy"><b>4</b></div><h4 data-en="Binder mixing">Pencampuran</h4><p data-en="Char is mixed with tapioca starch binder; dough moisture is sensed.">Arang dicampur perekat tepung tapioka; kelembapan adonan dipantau sensor.</p><span class="pill">10–20%</span></div>
+        <div class="fstep rv"><div class="n"><img class="n3d" src="assets/icons/i_press.webp" alt="" loading="lazy"><b>5</b></div><h4 data-en="Moulding">Pencetakan</h4><p data-en="A 2–5 ton hydraulic bottle jack presses the dough into cylinder moulds.">Dongkrak hidrolik 2–5 ton mengepres adonan ke cetakan silinder.</p></div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- DESAIN MESIN -->
+  <section class="sec-lp pat" id="desain">
+    <div class="lp-wrap">
+      <div class="head rv">
+        <span class="chip" data-en="03 · Machine design">03 · Desain mesin</span>
+        <h2><span data-en="One mobile frame,">Satu rangka beroda,</span><span class="grad-text" data-en="four functional units">empat unit fungsional</span></h2>
+        <p data-en="The parametric 3D model (Blender) and the engineering drawing (DXF/LibreCAD) are generated from the same dimension file. Tap a numbered point to inspect each part.">Model 3D parametrik (Blender) dan gambar teknik (DXF/LibreCAD) dibangun dari satu file dimensi yang sama. Ketuk titik bernomor untuk melihat tiap komponen.</p>
+      </div>
+      <div class="viewer card rv">
+        <div class="vbar">
+          <div class="seg" id="vtabs">
+            <button data-v="assembly" class="on" data-en="Assembly">Rakitan</button>
+            <button data-v="exploded" data-en="Teardown">Teardown</button>
+            <button data-v="spin">360°</button>
+            <button data-v="drawing" data-en="Drawing">Gambar teknik</button>
+          </div>
+          <div class="vdl">
+            <a class="btn-ghost" href="assets/cad/BRK-GA-001.pdf" download>PDF</a>
+            <a class="btn-ghost" href="assets/cad/BRK-GA-001.dxf" download>DXF</a>
+          </div>
+        </div>
+        <div class="stage">
+          <div class="view on" data-v="assembly"><div class="hs-wrap"><img src="assets/machine/machine_hero.webp" width="1451" height="1495" alt="Rakitan mesin BRIKETA" loading="lazy"><div class="hs" data-set="hero"></div></div></div>
+          <div class="view" data-v="exploded"><div class="hs-wrap"><img data-src="assets/machine/machine_exploded.webp" width="1364" height="1687" alt="Tampilan teardown mesin BRIKETA"><div class="hs" data-set="exploded"></div></div></div>
+          <div class="view" data-v="spin"><div class="spin" id="spin" role="img" aria-label="Putar mesin 360 derajat"><span class="spin-hint" data-en="Drag to rotate">Geser untuk memutar</span></div></div>
+          <div class="view" data-v="drawing"><div class="dwg" id="dwg"><img data-src="assets/cad/BRK-GA-001.svg" alt="Gambar teknik general arrangement BRK-GA-001"></div>
+            <div class="zoom"><button data-z="1" aria-label="Perbesar">+</button><button data-z="-1" aria-label="Perkecil">−</button><button data-z="0" aria-label="Reset">⟲</button></div></div>
+        </div>
+      </div>
+      <div class="parts-row">
+        <div class="parts rv" id="parts"></div>
+        <div class="card lp-card part-info rv" id="partInfo"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IOT -->
+  <section class="sec-lp" id="iot">
+    <div class="lp-wrap">
+      <div class="head rv">
+        <span class="chip" data-en="04 · Technology">04 · Teknologi</span>
+        <h2><span data-en="Sensors in the machine,">Sensor di mesin,</span><span class="grad-text" data-en="control in your hand">kendali di genggaman</span></h2>
+        <p data-en="An ESP32 reads every sensor, sends the data over Wi-Fi and receives commands for the actuators.">ESP32 membaca setiap sensor, mengirim data lewat Wi-Fi, dan menerima perintah untuk aktuator.</p>
+      </div>
+      <div class="iot">
+        <div class="col">
+          <div class="card sensor-row rv"><img class="ic3d sm" src="assets/icons/i_carbon.webp" alt="" loading="lazy"><div><b data-en="High-temperature sensor">Sensor suhu tinggi</b><small data-en="Monitors the pyrolysis chamber so char burns hot with little smoke">Memantau ruang pirolisis agar arang berdaya bakar maksimal dan minim asap</small></div></div>
+          <div class="card sensor-row rv"><img class="ic3d sm" src="assets/icons/i_thermo.webp" alt="" loading="lazy"><div><b>DHT22</b><small data-en="Temperature & humidity in the dryer, so material is dry enough to carbonize">Suhu & kelembapan pengering, memastikan bahan cukup kering untuk dikarbonisasi</small></div></div>
+          <div class="card sensor-row rv"><img class="ic3d sm" src="assets/icons/i_drop.webp" alt="" loading="lazy"><div><b data-en="Capacitive moisture">Kelembapan kapasitif</b><small data-en="Keeps the briquette dough moisture precise during binder mixing">Menjaga kelembapan adonan tetap presisi saat pencampuran perekat</small></div></div>
+        </div>
+        <div class="core rv"><div><img class="core-img" src="assets/icons/i_chip.webp" alt=""><b>ESP32</b><small>Wi-Fi · real-time</small></div></div>
+        <div class="col">
+          <div class="card sensor-row rv"><div class="ic-lg"><i data-ic="phone"></i></div><div><b data-en="Digital app">Aplikasi digital</b><small data-en="Live gauges and charts, early warning and quality control from anywhere">Gauge & grafik live, peringatan dini, dan kontrol kualitas dari jarak jauh</small></div></div>
+          <div class="card sensor-row rv"><img class="ic3d sm" src="assets/icons/i_bolt.webp" alt="" loading="lazy"><div><b data-en="4-channel relay">Relay 4 kanal</b><small data-en="Shredder motor, heating element, blower and air valve">Motor pencacah, elemen pemanas, blower, dan katup udara</small></div></div>
+          <div class="card sensor-row rv"><div class="ic-lg"><i data-ic="screen"></i></div><div><b data-en="Local HMI">HMI lokal</b><small data-en="Touchscreen display on the machine panel for operators">Layar sentuh di panel mesin untuk operator</small></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- APLIKASI -->
+  <section class="sec-lp" id="aplikasi">
+    <div class="lp-wrap app-grid">
+    <div class="phone-stage rv">
+      <div class="phone"><div class="screen-in"><iframe src="app?demo&amp;embed" title="BRIKETA app demo" loading="lazy"></iframe></div></div>
+      <div class="tag-float t1"><div class="ic"><i data-ic="flame"></i></div><div><span data-en="Carbonization">Karbonisasi</span><small data-en="monitored live">dipantau live</small></div></div>
+      <div class="tag-float t2"><div class="ic"><i data-ic="bell"></i></div><div><span data-en="Early warning">Peringatan dini</span><small data-en="out-of-range alerts">di luar ambang</small></div></div>
+    </div>
+      <div class="card lp-card hero-c rv">
+        <span class="chip" data-en="05 · The app">05 · Aplikasi</span>
+        <h3 style="font-size:24px;margin:14px 0 6px" data-en="Everything an operator needs">Semua yang dibutuhkan operator</h3>
+        <div class="feat"><div class="ic-lg"><i data-ic="gauge"></i></div><div><b data-en="Live dashboard">Dashboard live</b><small data-en="Carbonization gauge with the optimal band, dryer and dough sensors">Gauge karbonisasi dengan pita optimal, sensor pengering & adonan</small></div></div>
+        <div class="feat"><div class="ic-lg"><i data-ic="flow"></i></div><div><b data-en="Process & remote control">Proses & kendali jarak jauh</b><small data-en="Active stage tracking and actuator toggles, plus a binder calculator">Pelacakan tahap aktif, saklar aktuator, dan kalkulator perekat</small></div></div>
+        <div class="feat"><div class="ic-lg"><i data-ic="box"></i></div><div><b data-en="Batch & SNI quality log">Log batch & mutu SNI</b><small data-en="Moisture, ash, volatile matter and calorific value per batch">Kadar air, abu, volatile matter, dan nilai kalor per batch</small></div></div>
+        <div class="feat"><div class="ic-lg"><i data-ic="bell"></i></div><div><b data-en="Early warning">Peringatan dini</b><small data-en="Alerts when temperature or moisture leaves your thresholds">Notifikasi saat suhu atau kelembapan keluar dari ambang batas</small></div></div>
+        <div class="cta" style="margin-top:18px"><a class="btn-primary" href="app"><span data-en="Try the app">Coba aplikasinya</span><i data-ic="arrow"></i></a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec-lp" style="padding-top:0">
+    <div class="lp-wrap">
+      <div class="card lp-card rv">
+        <span class="chip" data-en="Prototype specification">Spesifikasi prototipe</span>
+        <table class="spec-lp" style="margin-top:12px" id="specLp"></table>
+      </div>
+    </div>
+  </section>
+
+  <!-- DAMPAK -->
+  <section class="sec-lp" id="dampak">
+    <div class="lp-wrap">
+      <div class="head center rv">
+        <span class="chip" data-en="06 · Impact">06 · Dampak</span>
+        <h2><span data-en="A circular loop,">Lingkaran ekonomi sirkular,</span><span class="grad-text" data-en="right where the waste begins">tepat di sumber limbahnya</span></h2>
+        <p data-en="Briquettes can return to the MBG kitchen as cooking fuel or be sold to nearby small businesses — cutting fuel and waste-disposal costs.">Briket dapat kembali ke dapur MBG sebagai bahan bakar memasak atau dipasarkan ke UMKM sekitar — menghemat biaya bahan bakar dan pembuangan sampah.</p>
+      </div>
+      <img class="deco d4" src="assets/deco/deco_ring.webp" alt="" aria-hidden="true" loading="lazy">
+      <div class="cycle rv">
+        <span class="pill"><i data-ic="home"></i><span data-en="MBG kitchen">Dapur MBG</span></span><span class="arr">→</span>
+        <span class="pill"><i data-ic="trash"></i><span data-en="Organic waste">Limbah organik</span></span><span class="arr">→</span>
+        <span class="pill"><i data-ic="brick"></i>BRIKETA</span><span class="arr">→</span>
+        <span class="pill"><i data-ic="flame"></i><span data-en="Fuel briquettes">Briket bahan bakar</span></span><span class="arr">→</span>
+        <span class="pill"><i data-ic="store"></i><span data-en="Kitchen & local MSMEs">Dapur & UMKM</span></span>
+      </div>
+      <div class="sdg-lp" style="margin-top:40px">
+        <div class="sdg-c rv" style="background:linear-gradient(150deg,#FCC30B,#E9A800);color:#3A2B00"><b>7</b><h4 data-en="Affordable & clean energy">Energi bersih & terjangkau</h4><p data-en="Alternative energy from waste biomass.">Sumber energi alternatif dari biomassa limbah.</p></div>
+        <div class="sdg-c rv" style="background:linear-gradient(150deg,#C99637,#A8762A)"><b>12</b><h4 data-en="Responsible consumption & production">Konsumsi & produksi bertanggung jawab</h4><p data-en="Less organic waste, turned into a value-added product.">Timbulan sampah organik berkurang dan diolah jadi produk bernilai tambah.</p></div>
+        <div class="sdg-c rv" style="background:linear-gradient(150deg,#215C86,#19486A)"><b>17</b><h4 data-en="Partnerships for the goals">Kemitraan untuk mencapai tujuan</h4><p data-en="University, students and SPPG/MBG kitchen partners working together.">Kolaborasi perguruan tinggi, mahasiswa, dan mitra pengelola SPPG/MBG.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROADMAP -->
+  <section class="sec-lp">
+    <div class="lp-wrap">
+      <div class="head rv">
+        <span class="chip" data-en="07 · Roadmap">07 · Rencana kerja</span>
+        <h2><span data-en="From design to lab test,">Dari rancangan ke uji lab,</span><span class="grad-text" data-en="in six months">dalam enam bulan</span></h2>
+      </div>
+      <div class="road" id="road"></div>
+    </div>
+  </section>
+
+  <!-- TIM -->
+  <section class="sec-lp" id="tim">
+    <div class="lp-wrap">
+      <div class="head rv">
+        <span class="chip" data-en="08 · Team">08 · Tim</span>
+        <h2><span data-en="Built by Industrial Engineering">Dibangun mahasiswa Teknik Industri</span><span class="grad-text">Universitas Sebelas Maret</span></h2>
+      </div>
+      <div class="team-lp" id="teamLp"></div>
+      <div class="partner">
+        <div class="card rv"><small data-en="Advisor">Dosen pembimbing</small><b>Dr. Eng. Ir. Pringgo Widyo Laksono, S.T., M.Eng., IPU, ASEAN Eng.</b><p>Fakultas Teknik UNS</p></div>
+        <div class="card rv"><small data-en="Partner">Mitra</small><b>SPPG Jebres</b><p data-en="Source of daily organic waste and future briquette user">Sumber limbah organik harian sekaligus calon pengguna briket</p></div>
+        <div class="card rv"><small data-en="Programme">Program</small><b data-en="Impactful Learning Grant 2026">Hibah Pembelajaran Berdampak 2026</b><p data-en="Independent Study scheme · UNS">Skema Studi Independen · UNS</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="lp-wrap">
+    <div class="final rv"><img class="deco d3" src="assets/deco/deco_briquettes.webp" alt="" aria-hidden="true">
+      <h2 data-en="See BRIKETA working, live.">Lihat BRIKETA bekerja, secara live.</h2>
+      <p data-en="Open the dashboard to follow the machine in real time, or explore the demo with simulated data.">Buka dashboard untuk memantau mesin secara real-time, atau jelajahi demo dengan data simulasi.</p>
+      <div class="cta"><a class="btn-w" href="app"><i data-ic="chart"></i><span data-en="Open dashboard">Buka dashboard</span></a><a class="btn-o" href="app?demo"><i data-ic="play"></i><span data-en="Try the demo">Coba demo</span></a></div>
+    </div>
+    <footer class="lp-foot"><span>© 2026 BRIKETA · Teknik Industri UNS</span><span data-en="Zero waste for MBG kitchens">Zero waste untuk dapur MBG</span></footer>
+  </section>
+</main>
+
+<script src="landing.js" defer></script>
+<script src="design.js" defer></script>
+</body>
+</html>

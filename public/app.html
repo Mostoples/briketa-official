@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>BRIKETA Monitor</title>
+<meta name="description" content="Monitoring IoT mesin smart briketisasi BRIKETA — limbah organik dapur MBG menjadi briket.">
+<meta name="theme-color" content="#E9EFF7">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app">
+  <header class="top">
+    <a class="brand" href="./" target="_top" style="text-decoration:none;color:inherit">
+      <div class="logo"><i data-ic="brick" style="color:#fff"></i></div>
+      <div><b>BRIKETA</b><small data-t="tagline">Smart Briketisasi IoT</small></div>
+    </a>
+    <div class="conn" id="conn"><span class="dot"></span><span id="connTxt">…</span></div>
+  </header>
+
+  <!-- 01 BERANDA -->
+  <section class="screen on" id="s-home">
+    <span class="chip" data-t="c1">01 · Dashboard</span>
+    <h1 class="h1"><span data-t="h1a">Limbah dapur MBG</span><span class="grad-text" data-t="h1b">jadi energi bersih</span></h1>
+    <p class="lead" data-t="l1">Pantau suhu karbonisasi, pengering, dan adonan briket secara real-time dari ESP32.</p>
+
+    <div class="card hero">
+      <div class="gauge-wrap">
+        <div class="gauge">
+          <svg viewBox="0 0 200 200" id="gaugeSvg">
+            <defs>
+              <linearGradient id="gg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8CC6FF"/><stop offset=".55" stop-color="#2F7BFF"/><stop offset="1" stop-color="#1646D6"/></linearGradient>
+              <filter id="glow" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="3.2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+            </defs>
+            <circle cx="100" cy="100" r="82" fill="none" stroke="#D3DDEB" stroke-width="14" stroke-linecap="round" stroke-dasharray="386.4 515.2"/>
+            <circle id="gBand" cx="100" cy="100" r="82" fill="none" stroke="rgba(25,185,122,.28)" stroke-width="22" stroke-dasharray="0 515.2"/>
+            <circle id="gArc" class="g-arc" cx="100" cy="100" r="82" fill="none" stroke="url(#gg)" stroke-width="14" stroke-linecap="round" stroke-dasharray="386.4 515.2" stroke-dashoffset="386.4" filter="url(#glow)"/>
+          </svg>
+          <div class="val"><b id="tKarbon">—<sup>°C</sup></b><small data-t="karbon">Suhu karbonisasi</small></div>
+        </div>
+        <div class="gauge-meta"><span class="status" id="karbonStatus">—</span><span class="pill" id="bandPill">Optimal 300–450 °C</span></div>
+      </div>
+    </div>
+
+    <div class="sec"><h3 data-t="sensors">Sensor</h3><small id="lastTs">—</small></div>
+    <div class="grid2">
+      <div class="card sensor"><div class="ic"><img src="assets/icons/i_thermo.webp" alt=""></div>
+        <div class="lbl" data-t="tDry">Suhu pengering</div><div class="num" id="tDryer">—<small>°C</small></div><div class="src">DHT22 · AM2302</div>
+        <div class="bar"><i id="bTDryer" style="width:0"></i></div></div>
+      <div class="card sensor"><div class="ic"><img src="assets/icons/i_drop.webp" alt=""></div>
+        <div class="lbl" data-t="rhDry">Kelembapan pengering</div><div class="num" id="rhDryer">—<small>%RH</small></div><div class="src">DHT22 · AM2302</div>
+        <div class="bar"><i id="bRh" style="width:0"></i></div></div>
+      <div class="card sensor"><div class="ic"><img src="assets/icons/i_mix.webp" alt=""></div>
+        <div class="lbl" data-t="mAd">Kelembapan adonan</div><div class="num" id="mAdonan">—<small>%</small></div><div class="src" data-t="capSrc">Sensor kapasitif</div>
+        <div class="bar"><i id="bM" style="width:0"></i></div></div>
+      <div class="card sensor"><div class="ic"><img src="assets/icons/i_chip.webp" alt=""></div>
+        <div class="lbl">ESP32</div><div class="num" id="rssi">—<small>dBm</small></div><div class="src" id="devId">BRK-01</div>
+        <div class="bar"><i id="bRssi" style="width:0"></i></div></div>
+    </div>
+
+    <div class="sec"><h3 data-t="today">Hari ini</h3><small data-t="cap">Kapasitas 3–5 kg/hari</small></div>
+    <div class="card today">
+      <div class="ring"><svg viewBox="0 0 80 80"><circle cx="40" cy="40" r="32" fill="none" stroke="#D3DDEB" stroke-width="8"/>
+        <circle id="todayArc" cx="40" cy="40" r="32" fill="none" stroke="url(#gg)" stroke-width="8" stroke-linecap="round" stroke-dasharray="201" stroke-dashoffset="201" transform="rotate(-90 40 40)" style="transition:stroke-dashoffset .9s var(--ease)"/></svg><b id="todayPct">0%</b></div>
+      <div><h4 id="todayKg">0 kg limbah diolah</h4><p id="todayOut">0 kg briket · 0 batch</p></div>
+    </div>
+  </section>
+
+  <!-- 02 PROSES -->
+  <section class="screen" id="s-proc">
+    <span class="chip" data-t="c2">02 · Proses</span>
+    <h1 class="h1"><span data-t="h2a">Lima tahap</span><span class="grad-text" data-t="h2b">limbah → briket</span></h1>
+    <p class="lead" data-t="l2">Tahap aktif dibaca dari mesin. Aktuator dapat dikendalikan dari jarak jauh lewat relay 4 kanal.</p>
+    <div class="card"><div class="steps" id="steps"></div></div>
+
+    <div class="sec"><h3 data-t="actuator">Aktuator</h3><small>Relay 4CH</small></div>
+    <div class="card" id="acts"></div>
+    <p class="mode-note" data-t="actNote">Perintah dikirim ke ESP32 melalui Firebase. Tombol fisik di panel tetap jadi prioritas.</p>
+
+    <div class="sec"><h3 data-t="calc">Kalkulator perekat</h3><small data-t="calcSub">Tapioka 10–20%</small></div>
+    <div class="card">
+      <label class="field"><span data-t="arang">Massa arang (kg)</span><input class="inp" id="cArang" type="number" min="0" step="0.1" value="1.5"></label>
+      <label class="field"><span><span data-t="kadar">Kadar perekat</span> · <b id="cPctTxt">15%</b></span><input id="cPct" type="range" min="10" max="20" step="1" value="15"></label>
+      <div class="result"><small data-t="need">Tapioka dibutuhkan</small><b id="cOut">225 g</b></div>
+      <div class="result" style="background:var(--bg);box-shadow:var(--inset)"><small data-t="water" style="color:var(--ink-2)">Air pelarut (± 1:4)</small><b id="cWater" style="color:var(--ink)">900 ml</b></div>
+    </div>
+  </section>
+
+  <!-- 03 GRAFIK -->
+  <section class="screen" id="s-chart">
+    <span class="chip" data-t="c3">03 · Analitik</span>
+    <h1 class="h1"><span data-t="h3a">Tren suhu</span><span class="grad-text" data-t="h3b">dan kelembapan</span></h1>
+    <p class="lead" data-t="l3">Grafik live untuk menjaga karbonisasi tetap di rentang optimal dan pengeringan tuntas.</p>
+    <div class="seg" id="seg"><button data-r="karbon" class="on" data-t="sKarbon">Karbonisasi</button><button data-r="dryer" data-t="sDryer">Pengering</button><button data-r="adonan" data-t="sAdonan">Adonan</button></div>
+    <div class="card" style="margin-top:16px">
+      <svg class="chart" id="chart" viewBox="0 0 340 210" preserveAspectRatio="none"></svg>
+      <div class="legend" id="legend"></div>
+      <div class="stats"><div class="stat"><small>Min</small><b id="stMin">—</b></div><div class="stat"><small data-t="avg">Rata-rata</small><b id="stAvg">—</b></div><div class="stat"><small>Max</small><b id="stMax">—</b></div></div>
+    </div>
+    <div class="sec"><h3 data-t="inband">Waktu di rentang optimal</h3><small id="inbandTxt">—</small></div>
+    <div class="card"><div class="bar" style="height:12px"><i id="inbandBar" style="width:0"></i></div></div>
+  </section>
+
+  <!-- 04 BATCH -->
+  <section class="screen" id="s-batch">
+    <span class="chip" data-t="c4">04 · Produksi</span>
+    <h1 class="h1"><span data-t="h4a">Catatan batch</span><span class="grad-text" data-t="h4b">& mutu SNI</span></h1>
+    <p class="lead" data-t="l4">Catat input limbah, perekat, dan hasil uji lab terhadap acuan SNI 01-6235-2000.</p>
+    <button class="btn-primary" id="addBatch"><i data-ic="plus"></i><span data-t="add">Catat batch baru</span></button>
+    <div class="sec"><h3 data-t="history">Riwayat</h3><small id="batchCount">0 batch</small></div>
+    <div class="stack" id="batches"></div>
+  </section>
+
+  <!-- 05 INFO -->
+  <section class="screen" id="s-info">
+    <span class="chip" data-t="c5">05 · Peringatan & Info</span>
+    <h1 class="h1"><span data-t="h5a">Peringatan dini</span><span class="grad-text" data-t="h5b">& tentang alat</span></h1>
+    <p class="lead" data-t="l5">Notifikasi muncul saat parameter keluar dari ambang batas yang Anda tentukan.</p>
+    <div class="card" id="alerts"><div class="empty" data-t="noAlert">Belum ada peringatan.</div></div>
+
+    <div class="sec"><h3 data-t="thr">Ambang batas</h3><button class="btn-ghost" id="saveThr" data-t="save">Simpan</button></div>
+    <div class="card thr">
+      <label class="field" style="margin:0"><span data-t="tmin">Karbonisasi min (°C)</span><input class="inp" id="thTMin" type="number"></label>
+      <label class="field" style="margin:0"><span data-t="tmax">Karbonisasi maks (°C)</span><input class="inp" id="thTMax" type="number"></label>
+      <label class="field" style="margin:0"><span data-t="rhmax">RH pengering maks (%)</span><input class="inp" id="thRh" type="number"></label>
+      <label class="field" style="margin:0"><span data-t="mrange">Adonan maks (%)</span><input class="inp" id="thM" type="number"></label>
+    </div>
+
+    <div class="sec"><h3 data-t="spec">Spesifikasi prototipe</h3></div>
+    <div class="card"><table class="spec" id="spec"></table></div>
+
+    <div class="sec"><h3 data-t="teamH">Tim pelaksana</h3><small>UNS · Teknik Industri</small></div>
+    <div class="card">
+      <div class="team" id="team"></div>
+      <p class="mode-note" style="margin-top:14px"><span data-t="advisor">Dosen pembimbing</span>: Dr. Eng. Ir. Pringgo Widyo Laksono, S.T., M.Eng., IPU, ASEAN Eng. · <span data-t="partner">Mitra</span>: SPPG Jebres</p>
+    </div>
+
+    <div class="sec"><h3>SDGs</h3></div>
+    <div class="sdg">
+      <div style="background:#FCC30B;color:#3A2B00"><b>7</b><small data-t="sdg7">Energi bersih</small></div>
+      <div style="background:#BF8B2E"><b>12</b><small data-t="sdg12">Produksi bertanggung jawab</small></div>
+      <div style="background:#19486A"><b>17</b><small data-t="sdg17">Kemitraan</small></div>
+    </div>
+
+    <div class="sec"><h3 data-t="lang">Bahasa & mode</h3></div>
+    <div class="card" style="display:flex;gap:10px;flex-wrap:wrap">
+      <div class="seg" id="langSeg" style="flex:1;min-width:150px"><button data-l="id">Indonesia</button><button data-l="en">English</button></div>
+      <button class="btn-ghost" id="demoBtn">Demo</button>
+    </div>
+    <p class="foot">BRIKETA · Program Hibah Pembelajaran Berdampak UNS 2026</p>
+  </section>
+</div>
+
+<nav class="nav" id="nav">
+  <button data-s="home" class="on"><i data-ic="home"></i><span data-t="nHome">Beranda</span></button>
+  <button data-s="proc"><i data-ic="flow"></i><span data-t="nProc">Proses</span></button>
+  <button data-s="chart"><i data-ic="chart"></i><span data-t="nChart">Grafik</span></button>
+  <button data-s="batch"><i data-ic="box"></i><span data-t="nBatch">Batch</span></button>
+  <button data-s="info"><i data-ic="bell"></i><span class="badge" id="alertBadge">0</span><span data-t="nInfo">Info</span></button>
+</nav>
+
+<div class="scrim" id="scrim"></div>
+<form class="sheet" id="sheet" autocomplete="off">
+  <div class="grab"></div>
+  <h3 data-t="newBatch">Batch baru</h3>
+  <p class="hint" data-t="hintLab">Kolom uji lab boleh dikosongkan dan dilengkapi setelah hasil laboratorium keluar.</p>
+  <div class="f2">
+    <label class="field"><span data-t="fIn">Limbah masuk (kg)</span><input class="inp" name="inputKg" type="number" step="0.1" min="0" required></label>
+    <label class="field"><span data-t="fOut">Briket jadi (kg)</span><input class="inp" name="outputKg" type="number" step="0.01" min="0"></label>
+    <label class="field"><span data-t="fT">Suhu karbonisasi (°C)</span><input class="inp" name="tKarbon" type="number" min="0"></label>
+    <label class="field"><span data-t="fDur">Lama karbonisasi (menit)</span><input class="inp" name="durMin" type="number" min="0"></label>
+    <label class="field"><span data-t="fGlue">Perekat tapioka (%)</span><input class="inp" name="perekat" type="number" min="0" max="100" step="1" value="15"></label>
+    <label class="field"><span data-t="fSrc">Asal limbah</span><select class="inp" name="src"><option>Nasi</option><option>Sayur</option><option>Lauk</option><option selected>Campuran</option></select></label>
+  </div>
+  <div class="sec" style="margin:18px 2px 0"><h3 data-t="labH">Hasil uji lab</h3><small>SNI 01-6235-2000</small></div>
+  <div class="f2">
+    <label class="field"><span data-t="lAir">Kadar air (%)</span><input class="inp" name="air" type="number" step="0.01"></label>
+    <label class="field"><span data-t="lAbu">Kadar abu (%)</span><input class="inp" name="abu" type="number" step="0.01"></label>
+    <label class="field"><span data-t="lVm">Volatile matter (%)</span><input class="inp" name="vm" type="number" step="0.01"></label>
+    <label class="field"><span data-t="lKal">Nilai kalor (kal/g)</span><input class="inp" name="kalor" type="number" step="1"></label>
+  </div>
+  <button class="btn-primary" type="submit"><i data-ic="check"></i><span data-t="saveBatch">Simpan batch</span></button>
+</form>
+<div class="toast" id="toast"></div>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js" defer></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-database-compat.js" defer></script>
+<script src="app.js" defer></script>
+</body>
+</html>
